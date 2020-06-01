@@ -7,11 +7,12 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<title>tousu</title>
 		<link rel="stylesheet" type="text/css" href="style/q_broker.css" />
-		<script src="style/q_ui/jquery-1.8.3.min.js"></script>
+		<!-- <script src="style/q_ui/jquery-1.8.3.min.js"></script> -->
+		<script src="style/jquery.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="style/q_ui/bootstrap.css" />
 		<script src="style/q_ui/bootstrap.js"></script>
 		<link rel="stylesheet" type="text/css" href="style/q_ui/progress.css" />
-		<link rel="stylesheet" type="text/css" href="style/page.css" />
+		<!-- <link rel="stylesheet" type="text/css" href="style/page.css" /> -->
 		<link rel="stylesheet" type="text/css" href="style/q_ui/jquery.webui-popover.css" />
 		<script src="style/q_ui/url_tools.js"></script>
 		<link rel="stylesheet" type="text/css" href="style/q_ui/q_emoji.css" />
@@ -26,6 +27,10 @@
 				bottom:0;
 			}
 		</style>
+
+		<!-- 弹窗蒙层 -->
+		<link rel="stylesheet" type="text/css" href="style/fixed_position.css" />
+		<link rel="stylesheet" href="style/font-awesome-4.7.0/css/font-awesome.min.css">
 	</head>
 
 	<body>
@@ -303,7 +308,7 @@
 								<span><span>到期时间 :</span><span>2010.11.08</span></span>
 							</div>
 							<div class="q_info_jg_4 q_row">
-								<a href="javascript:;" onclick="check_fx()">查看风险</a>
+								<a href="javascript:;" class="certificate-btn" onclick="openCertificate(0)">查看证书</a>
 
 							</div>
 						</div>
@@ -319,7 +324,7 @@
 
 						<h3>常用功能</h3>
 						<div class="q_changyong q_row">
-							<div class="q_cy_item q_row">
+							<div id="mpgg" class="q_cy_item q_row">
 								<img src="images/ico_cygn_mpgg.png">
 								<div class="q_col">
 									<p>冒牌公告 ▶</p>
@@ -333,28 +338,28 @@
 									<p>快速识别冒牌公告，保障安全</p>
 								</div>
 							</div>
-							<div class="q_cy_item q_row">
+							<div id="identify-mt4" class="q_cy_item q_row">
 								<img src="images/ico_cygn_jianding.png">
 								<div class="q_col">
 									<p>MT4/5鉴定 ▶</p>
 									<p>快速识别冒牌公告，保障安全</p>
 								</div>
 							</div>
-							<div class="q_cy_item q_row">
+							<a class="q_cy_item q_row" target="_blank" href="company_profile/index.html">
 								<img src="images/ico_cygn_gstp.png">
 								<div class="q_col">
 									<p>公司图片 ▶</p>
 									<p>快速识别冒牌公告，保障安全</p>
 								</div>
-							</div>
-							<div class="q_cy_item q_row">
+							</a>
+							<div id="company-executive" class="q_cy_item q_row">
 								<img src="images/ico_cygn_gsgc.png">
 								<div class="q_col">
 									<p>公司高层 ▶</p>
 									<p>快速识别冒牌公告，保障安全</p>
 								</div>
 							</div>
-							<div class="q_cy_item q_row">
+							<div id="papers-info" class="q_cy_item q_row">
 								<img src="images/ico_cygn_zjzl.png">
 								<div class="q_col">
 									<p>证件资料 ▶</p>
@@ -1109,6 +1114,281 @@
 				<img id="bigimg" style="border:5px solid #fff;" src="" />
 			</div>
 		</div>
+		<!-- MT4 MT5 -->
+		<div class="fixed-position identify-mt4" style="display: none;">
+			<div class="position-window">
+				<div class="close-icon">
+					<img src="images/close.png" alt="">
+				</div>
+				<div class="title">FXTM富拓 · MT4/5鉴定</div>
+				<dashboard class="dashboard">
+					<div class="dashboard-header">
+						<div class="dashboard-title">
+							<div class="dashboard-status">
+								<div class="success">
+									<i class="fa fa-check"></i>
+								</div>
+							</div>
+							<div class="dashboard-status-title">鉴定结果：</div>
+							<div class="dashboard-status-name">主标 MT4/5</div>
+						</div>
+						<dashboard-clock digital="true" binary="true" />
+					</div>
+					<p class="dashboard-explain">正规的MT4/5主标交易商会有健全的系统服务与后续技术支持，一般情况下业务和技术都较为成熟风险控制能力较强</p>
+					<server-list>
+						<server v-for="(server, index) in servers" :class="{ 'has-failed': !server.status }" :type="server.type">
+							<span slot="name" class="data">{{server.name}}</span>
+							<span slot="status" class="data signal">{{server.mt}}</span>
+							<img slot="adr_icon" class="adr-icon" :src="server.adr_icon"/>
+							<!-- 更改状态图片 -->
+							<img slot="status_img" class="status_img" :src="server.status?'images/close.png':'images/ico_cygn_jianding.png'"/>
+							<span slot="adr" class="data">{{server.adr}}</span>
+						</server>
+					</server-list>
+				</dashboard>
+			</div>
+		</div>
+		<!-- 公司高层 -->
+		<div class="fixed-position company-executive">
+			<div class="position-window">
+				<div class="close-icon">
+					<img src="images/close.png" alt="">
+				</div>
+				<div class="title">公司高层</div>
+				<div class="content">
+					<div class="executive-title">
+						<div>姓名</div>
+						<div>职位</div>
+						<div>简介</div>
+					</div>
+					<div class="scroll">
+						<div class="executive-item">
+							<div>
+								<div>
+									<div><img src="http://placehold.it/59x59" alt=""></div>
+									<div>姓名</div>
+								</div>
+							</div>
+							<div>
+								<div>创始人&全球CEO</div>
+							</div>
+							<div>
+								<div>张一鸣，今日头条创始人、CEO。毕业于南开大学软件工程专业，曾参与创建酷讯、九九房等多家互联网公司，历任酷讯技术委员会主席、九九房创始人兼CEO。2012年，张一鸣创办字节跳动。 2013年，他先后入选《福布斯》“中国30位30岁以下的创业者”和《财富》“中国40位40岁以下的商业精英”，是目前国内互联网行业最受关注的青年领袖之一。 2018年10月，张一鸣以650亿元人民币财富位居2018年胡润百富榜第26位。</div>
+							</div>
+						</div>
+						<div class="executive-item">
+							<div>
+								<div>
+									<div><img src="http://placehold.it/59x59" alt=""></div>
+									<div>姓名</div>
+								</div>
+							</div>
+							<div>
+								<div>中国董事长</div>
+							</div>
+							<div>
+								<div>8年记者，后任京华时报社委副总裁，曾经都市大报全国最年轻的广告总经理。2013年加入创业公司今日头条，参与移动互联网的创业全面负责今日头条的商业化。</div>
+							</div>
+						</div>
+						<div class="executive-item">
+							<div>
+								<div>
+									<div><img src="http://placehold.it/59x59" alt=""></div>
+									<div>姓名</div>
+								</div>
+							</div>
+							<div>
+								<div>创始人&全球CEO</div>
+							</div>
+							<div>
+								<div>张一鸣，今日头条创始人、CEO。毕业于南开大学软件工程专业，曾参与创建酷讯、九九房等多家互联网公司，历任酷讯技术委员会主席、九九房创始人兼CEO。2012年，张一鸣创办字节跳动。 2013年，他先后入选《福布斯》“中国30位30岁以下的创业者”和《财富》“中国40位40岁以下的商业精英”，是目前国内互联网行业最受关注的青年领袖之一。 2018年10月，张一鸣以650亿元人民币财富位居2018年胡润百富榜第26位。</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 证书资料 - 图片 -->
+		<div class="fixed-position papers-info" style="display: none;">
+			<div class="position-window">
+				<div class="close-icon">
+					<img src="images/close.png" alt="">
+				</div>
+				<div class="title">
+					证件资料
+				</div>
+				<div id="papers-info-img" class="content">
+					<img src="http://placehold.it/400x100" alt="">
+					<img src="http://placehold.it/400x200" alt="">
+					<img src="http://placehold.it/400x300" alt="">
+					<img src="http://placehold.it/400x400" alt="">
+					<img src="http://placehold.it/400x500" alt="">
+					<img src="http://placehold.it/400x600" alt="">
+				</div>
+			</div>
+		</div>
+		<!-- 冒牌公告 -->
+		<div class="fixed-position mpgg" style="display: none;">
+			<div class="position-window">
+				<div class="close-icon">
+					<img src="images/close.png" alt="">
+				</div>
+				<div class="title">
+					冒牌公告
+				</div>
+				<div class="content j_dangan">
+					<div class="j_row">
+                        <div class="j_row">
+                            <div class="j_dangan_lt">疑似套牌</div>
+                            <div class="j_dangan_left">
+                                <img src="images/img1.png">
+                            </div>
+                            <div class="j_dangan_right j_col">
+                                <p>
+									<span>FinUK英国金融</span>
+								</p>
+								<p>
+									<span>口碑评分<span>1.35</span></span>
+								</p>
+                                <p>黑平台 | 1年内 | 监管牌照存疑 | 非MT4/5软件</p>
+                            </div>
+                        </div>
+                        <div class="j_dangan_r_btn j_col">
+                            <img src="images/search.png">
+                            <div>
+                                查看<br> 更多详情
+                            </div>
+                        </div>
+					</div>
+					<div class="j_row">
+                        <div class="j_row">
+                            <div class="j_dangan_lt">疑似套牌</div>
+                            <div class="j_dangan_left">
+                                <img src="images/img1.png">
+                            </div>
+                            <div class="j_dangan_right j_col">
+                                <p>
+									<span>FinUK英国金融</span>
+								</p>
+								<p>
+									<span>口碑评分<span>1.35</span></span>
+								</p>
+                                <p>黑平台 | 1年内 | 监管牌照存疑 | 非MT4/5软件</p>
+                            </div>
+                        </div>
+                        <div class="j_dangan_r_btn j_col">
+                            <img src="images/search.png">
+                            <div>
+                                查看<br> 更多详情
+                            </div>
+                        </div>
+					</div>
+					<div class="j_row">
+                        <div class="j_row">
+                            <div class="j_dangan_lt">疑似套牌</div>
+                            <div class="j_dangan_left">
+                                <img src="images/img1.png">
+                            </div>
+                            <div class="j_dangan_right j_col">
+                                <p>
+									<span>FinUK英国金融</span>
+								</p>
+								<p>
+									<span>口碑评分<span>1.35</span></span>
+								</p>
+                                <p>黑平台 | 1年内 | 监管牌照存疑 | 非MT4/5软件</p>
+                            </div>
+                        </div>
+                        <div class="j_dangan_r_btn j_col">
+                            <img src="images/search.png">
+                            <div>
+                                查看<br> 更多详情
+                            </div>
+                        </div>
+					</div>
+					<div class="j_row">
+                        <div class="j_row">
+                            <div class="j_dangan_lt">疑似套牌</div>
+                            <div class="j_dangan_left">
+                                <img src="images/img1.png">
+                            </div>
+                            <div class="j_dangan_right j_col">
+                                <p>
+									<span>FinUK英国金融</span>
+								</p>
+								<p>
+									<span>口碑评分<span>1.35</span></span>
+								</p>
+                                <p>黑平台 | 1年内 | 监管牌照存疑 | 非MT4/5软件</p>
+                            </div>
+                        </div>
+                        <div class="j_dangan_r_btn j_col">
+                            <img src="images/search.png">
+                            <div>
+                                查看<br> 更多详情
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 证书 -->
+		<div class="fixed-position certificate" style="display: none;">
+			<div class="position-window">
+				<div class="close-icon">
+					<img src="images/close.png" alt="">
+				</div>
+				<img src="images/bkcetif.png" style="width: 100%;" alt="">
+				<div class="content">
+					<div class="logo">
+						<img src="images/LOGO.png" alt="">
+					</div>
+					<div class="certificate-title">
+						<div>澳大利亚证券及投资委员会</div>
+						<div class="jgdj">监管等级：<div>高</div></div>
+					</div>
+					<div class="explain">澳大利亚证券和投资委员会(ASIC) 是澳大利亚政府的独立机构，根据Walis Inquiry的建议于1998年7月1日成立，负责监管澳大利亚的公司。ASIC的作用是实施金融服务法和规范公司行为，以保护澳澳大利亚证券和投资委员会(ASIC) 是澳大利亚政府的独立机构，根据Walis Inquiry的建议于1998年7月1日成立，负责监管澳大利亚的公司。ASIC的作用是实施金融服务法和规范公司行为，以保护澳澳大利亚证券和投资委员会(ASIC) 是澳大利亚政府的独立机构，根据Walis Inquiry的建议于1998年7月1日成立，负责监管澳大利亚的公司ASIC的作用是实施金融服务法和规范公司行为，以保护澳大利亚的消..</div>
+					<div class="status">
+						<div>当前状态：<span>监管中</span></div>
+						<div>监管国家：<span>澳大利亚</span></div>
+						<div>监管证号：<span>406684</span></div>
+						<div>牌照类型：<span>全牌照MM</span></div>
+					</div>
+					<div class="info">
+						<div>
+							<p><span class="bold">持牌机构:</span><span>M AVA CAPITAL MARKETS AUSTRALIA PTY LTD</span></p>
+							<p><span class="bold">持牌机构邮箱: </span><span>D.Ferguson@avatrade.com</span></p>
+							<p><span class="bold">持牌机构网址:</span><span>— —</span></p>
+							<p><span class="bold">持牌机构地址:</span><span>Level 13, 2- -26 Park Street, SYDNEY NSW 2000</span></p>
+							<p><span class="bold">持牌机构证明文件:</span><span></span></p>
+							<p>爱华AFCA牌照信息20190213更新<a>[查看证明文件]</a></p>
+							<p>爱华AFCA牌照信息20190213更新<a>[查看证明文件]</a></p>
+							<p>爱华AFCA牌照信息20190213更新<a>[查看证明文件]</a></p>
+						</div>
+						<div>
+							<div>
+								<p>
+									<span class="bold">生效时间:</span>
+									<span>2011年11月09日</span>
+								</p>
+								<p>
+									<span class="bold">到期时间:</span>
+									<span>— —</span>
+								</p>
+								<p>
+									<span class="bold">持牌机构电话: </span>
+									<span>1800 206 496</span>
+								</p>
+							</div>
+							<div>
+								<img src="images/zhang.png" alt="">
+								<img src="images/zhang.png" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		<script src="style/q_ui/q_emoji_broker.js"></script>
 
 		<script src="style/q_ui/MiniDialog-es5.min.js"></script>
@@ -1116,10 +1396,14 @@
 		<script src="style/q_ui/progresscircle.js"></script>
 		<script src="style/d_jquery.page.js"></script>
 
+		<!-- 弹窗引入的js -->
+		<script src='style/vue.min.js'></script>
+		<script src='style/vuex.min.js'></script>
+		<script src="style/imagePreview.min.js" type="text/javascript"></script>
+		<script src="style/fixed_position.js"></script> <!-- 弹窗用到的自己的js -->
+
 		<script>
 			$('.circlechart').circlechart(); // Initialization
-			
-
 			function q_huifu_img(e) {
 				var _this = $(e); //将当前的pimg元素作为_this传入函数
 				imgShow("#outerdiv", "#innerdiv", "#bigimg", _this);
@@ -1170,9 +1454,6 @@
 					}
 				}
 			};
-
-
-
 			window.myRadar = new Chart(document.getElementById("chartjs-radar-chart"), radarConfig);
 		</script>
 	</body>
