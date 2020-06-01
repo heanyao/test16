@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>tousu</title>
+		<link rel="stylesheet" type="text/css" href="style/q_broker.css" />
+		<script src="style/q_ui/jquery-1.8.3.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="style/q_ui/bootstrap.css" />
+		<script src="style/q_ui/bootstrap.js"></script>
+		<link rel="stylesheet" type="text/css" href="style/q_ui/progress.css" />
+		<link rel="stylesheet" type="text/css" href="style/page.css" />
+		<link rel="stylesheet" type="text/css" href="style/q_ui/jquery.webui-popover.css" />
+		<script src="style/q_ui/url_tools.js"></script>
+		<link rel="stylesheet" type="text/css" href="style/q_ui/q_emoji.css" />
+		<style>
+			.waves {
+			  width: 100%;
+			  height: 100%;
+				position:absolute;
+				left:0;
+				top:0;
+				right:0;
+				bottom:0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<input type="hidden" name="" id="companie_id" value="1" />
+
+		<div class="q_main q_col">
+			<!-- 头部 -->
+
+			<div class=" q_header  q_col ">
+				<div class="waves"></div>
+				<script src="style/q_ui/q_bj.js"></script>
+				<div class="q_h_gxsj q_row">
+					<i></i> 更新时间：<span></span>
+				</div>
+				<script>
+					$(function(){
+						var myDate = new Date;
+						    var year = myDate.getFullYear(); //获取当前年
+						    var mon = myDate.getMonth() + 1; //获取当前月
+						    var date = myDate.getDate(); //获取当前日
+						var today_ = year+"-"+mon+"-"+date;
+						$('.q_h_gxsj>span').text(today_);
+					});
+				</script>
+				<div class="q_h_content q_row">
+					<div class="q_h_jianguan">
+						<div class="q_jianguan">
+							<div class="q_jianguan_lt">监管中</div>
+							<div class="q_jg_dsj"></div>
+							<div class="q_jg_dsj2"></div>
+							<img src="images/test.png" alt="">
+						</div>
+						<div class="q_jianguan_2 q_row">
+							<img src="images/icons/pic_qbdt.png">
+							<div class="q_qinbao_list">
+								<p class="q_qinbao_item">11111111111111111111111111111111111111111111111111111111111111111</p>
+								<p class="q_qinbao_item">22222222222222222222222222222222222222222</p>
+								<p class="q_qinbao_item">32444444444444444444444444444444444444</p>
+								<p class="q_qinbao_item">4333333333333333333333</p>
+								<p class="q_qinbao_item">5555555555555555555</p>
+							</div>
+							<a href="javascript:;">更多</a>
+
+						</div>
+						<div class="q_jianguan_3 q_row">
+							<p><img onclick="shoucang(this)" data-sc-type="1" src="images/icons/ico_xq_guanzhu.png"><span>关注</span></p>
+							<p><img src="images/icons/ico_xq_zhuanfa.png"><span>转发</span></p>
+							<p><img src="images/icons/ico_xq_jiucuo.png"><span>纠错</span></p>
+							<p><img src="images/icons/ico_xq_tousu.png"><span>投诉</span></p>
+						</div>
+					</div>
+					<div class="q_h_info">
+						<p class="name"><span>中国平安</span> · <span>PINGAN</span></p>
+						<p class="info">15-20年 <span>|</span> 澳大利亚监管 <span>|</span> 全牌照(MM) <span>|</span> 主标MT4/5软件 </p>
+						<p class="info2">
+							<img src="images/test.png"> &nbsp;&nbsp; 2017年 &nbsp;&nbsp;
+							<span>
+								推荐指数：
+								<img src="images/icons/ico_xing_wanz_b.png">
+								<img src="images/icons/ico_xing_wanz_b.png">
+								<img src="images/icons/ico_xing_wanz_b.png">
+								<img src="images/icons/ico_xing_wanz_b.png">
+								<img src="images/icons/ico_xing_yiban_b.png">
+								&nbsp;&nbsp;4.8
+							</span>
+						</p>
+						<div class="address q_row" style="margin-top: 29px;">中文地址 <span>https：//www.fuhuiasia.com</span><img src="images/icons/down.png"
+							 onclick="open_address_other(this)">
+							<div class="address_other">
+								<p class="q_row">
+									<span>中文地址</span>
+									<span class="address_other_address">
+										<a href="https://www.fuhuiasia.com">https://www.fuhuiasia.com</a>
+										<a href="https://www.fuhuiasia.com">https://www.fuhuiasia.com</a>
+										<a href="https://www.fuhuiasia.com">https://www.fuhuiasia.com</a>
+										<a href="https://www.fuhuiasia.com">https://www.fuhuiasia.com</a>
+									</span>
+									<img src="images/icons/up.png" onclick="close_address_other(this)">
+								</p>
+
+							</div>
+						</div>
+
+						<div class="address q_row" style="margin-top: 10px;">英文地址 <span>https：//www.fuhuiasia.com</span><img src="images/icons/down.png"
+							 onclick="open_address_other(this)">
+							<div class="address_other">
+								<p class="q_row">
+									<span>中文地址</span>
+									<span class="address_other_address">
+										<a href="https://www.fuhuiasia.com">https://www.fuhuiasia.com</a>
+										<a href="https://www.fuhuiasia.com">https://www.fuhuiasia.com</a>
+										<a href="https://www.fuhuiasia.com">https://www.fuhuiasia.com</a>
+										<a href="https://www.fuhuiasia.com">https://www.fuhuiasia.com</a>
+									</span>
+									<img src="images/icons/up.png" onclick="close_address_other(this)">
+								</p>
+
+							</div>
+						</div>
+
+
+
+						<script>
+
+							function open_address_other(e){
+								$('.address_other').css('display','none');
+								$(e).siblings('.address_other').fadeIn();
+							
+							}
+							function close_address_other(e){
+								$(e).parents('.address_other').fadeOut();
+							}
+						</script>
+						<p class="btns">
+							<a href="javascript:;">在线开户</a>
+							<a href="javascript:;">MT4下载</a>
+							<a href="javascript:;">MT4/5鉴定</a>
+							<a href="javascript:;">IB直通车</a>
+						</p>
+					</div>
+					<div class="q_h_zhkb">
+						<p class="title">
+							综合口碑(9469人点评)
+							<i class="q_qdf_icon" onclick="to_dafen()"></i>
+							<script>
+								function to_dafen(){
+									$('body,html').animate({scrollTop: $('.q_tijiao_box').offset().top}, 500);
+								}
+							</script>
+						</p>
+						<div class="q_row q_h_pf">
+							<div class="pf">
+								<div class="circlechart" data-percentage="90"></div>
+							</div>
+							<div>
+								<table class="hp">
+									<tr>
+										<td><img src="images/icons/ico_kb_hp.png"></td>
+										<td>好评:</td>
+										<td>(8662)</td>
+									</tr>
+									<tr>
+										<td><img src="images/icons/ico_kb_yb.png"></td>
+										<td>一般:</td>
+										<td>(453)</td>
+									</tr>
+									<tr>
+										<td><img src="images/icons/ico_kb_cp.png"></td>
+										<td>差评:</td>
+										<td>(353)</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+						<p class="title">
+							网友印象
+						</p>
+						<div class="q_h_pf_labels q_row">
+							<span class="q_pf_item">
+								安全 6351
+							</span>
+							<span class="q_pf_item">
+								靠谱 483
+							</span>
+							<span class="q_pf_item">
+								背景强大 483
+							</span>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="q_contnet q_row">
+				<!-- 内容部分 -->
+				<div class="q_c_left">
+					<!-- 左边 -->
+					<div class="q_fxsm q_row">
+						<!-- 风险扫描 -->
+						<!-- Loader1 -->
+						<svg version="1.1" id="L1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+						 y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+							<circle fill="none" stroke="#ff0000" stroke-width="6" stroke-miterlimit="15" stroke-dasharray="14.2472,14.2472"
+							 cx="50" cy="50" r="47">
+								<animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="5s" from="0 50 50" to="360 50 50"
+								 repeatCount="indefinite" />
+							</circle>
+							<circle fill="none" stroke="#ff0000" stroke-width="1" stroke-miterlimit="10" stroke-dasharray="10,10" cx="50" cy="50"
+							 r="39">
+								<animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="5s" from="0 50 50" to="-360 50 50"
+								 repeatCount="indefinite" />
+							</circle>
+							<g fill="#ff0000">
+								<rect x="30" y="35" width="5" height="30">
+									<animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite"
+									 begin="0.1" />
+								</rect>
+								<rect x="40" y="35" width="5" height="30">
+									<animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite"
+									 begin="0.2" />
+								</rect>
+								<rect x="50" y="35" width="5" height="30">
+									<animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite"
+									 begin="0.3" />
+								</rect>
+								<rect x="60" y="35" width="5" height="30">
+									<animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite"
+									 begin="0.4" />
+								</rect>
+								<rect x="70" y="35" width="5" height="30">
+									<animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite"
+									 begin="0.5" />
+								</rect>
+							</g>
+						</svg>
+						<img class="q_fxsm_img1" src="images/icons/pic_fxsm.png">
+						<img src="images/icons/ico_fxsm_gaowei.png">
+						<span class="q_fx_gw">高危风险 56 </span>
+						<img src="images/icons/ico_fxsm_zhongdeng.png">
+						<span class="q_fx_zd">中等风险 4</span>
+						<img src="images/icons/ico_fxsm_yiban.png">
+						<span class="q_fx_yb">一般风险 65</span>
+						<span class="q_fx_ck" onclick="check_fx()">查看风险</span>
+					</div>
+					<div class="q_info">
+						<!-- 信息和功能 -->
+						<div class="q_info_info">
+							<p class="q_row q_info_1">
+								<span><span class="q_info_title">电话：</span><span>13871253353</span></span>
+								<span><span class="q_info_title">邮箱：</span><span>dongzhirong@517lppz.com</span></span>
+							</p>
+							<p class="q_row q_info_1">
+								<span><span class="q_info_title">网址：</span><span>www.517lppz.com</span></span>
+								<span><span class="q_info_title">地址：</span><span>湖北省武汉市东西湖区走马岭革新大道8号</span></span>
+							</p>
+							<p class="q_info_3 q_row">
+								<span class="q_info_title">简介：</span><span>由外汇天眼依托天眼嗅探系汇天眼依托天眼嗅探系汇天眼依托天眼嗅探系汇天眼依托天眼嗅探系汇天眼依托托天眼嗅探系汇天眼依托天眼嗅托天眼嗅探系汇天眼依托天眼嗅托天眼嗅探系汇天眼依托天眼嗅托天眼嗅探系汇天眼依托天眼嗅托天眼嗅探系汇天眼依托天眼嗅托天眼嗅探系汇天眼依托天眼嗅天眼嗅探系汇天眼依托天眼嗅探系统对全球上百家知名平台的用户实盘交易情况进行检测，结合专业的外汇交易商鉴别团队…</span>
+								<a href="javascript:;" onclick="change_last_heght()">更多</a>
+								<script>
+									function change_last_heght(){
+										if($('.q_info_3').css('overflow-y')!='visible'){
+											$('.q_info_3').css('overflow-y','visible');
+											$('.q_info_3').css('height','auto');
+										}
+										else{
+											$('.q_info_3').css('overflow-y','hidden')
+											$('.q_info_3').css('height','15px');
+											}
+										}
+								</script>
+								
+							</p>
+						</div>
+
+						<h3>监管信息</h3>
+
+						<div class="q_info_jg q_row">
+							<div class="q_jianguan_lt">监管中</div>
+							<div class="q_jg_dsj"></div>
+							<div class="q_jg_dsj2"></div>
+							<div class="q_info_jg_1"><img src="images/test.png"></div>
+							<div class="q_info_jg_2 q_col">
+								<span><span>监管国家 :</span><span>13871253353</span></span>
+								<span><span>监管证号 :</span><span>520965</span></span>
+								<span><span>牌照类型 :</span><span>全牌照(MM)</span></span>
+								<span><span>发证时间 :</span><span>2010.11.08</span></span>
+							</div>
+							<div class="q_info_jg_3 q_info_jg_2 q_col">
+								<span><span>监管强度 :</span><span>
+										<i class="q_info_jgqd1"></i>
+										<i class="q_info_jgqd2"></i>
+										<i class="q_info_jgqd3"></i>
+									</span></span>
+								<span><span>业务权限 :</span><span>520965</span></span>
+								<span><span>公司注册码 :</span><span>全牌照(MM)</span></span>
+								<span><span>到期时间 :</span><span>2010.11.08</span></span>
+							</div>
+							<div class="q_info_jg_4 q_row">
+								<a href="javascript:;" onclick="check_fx()">查看风险</a>
+
+							</div>
+						</div>
+
+						<div class="q_info_jg q_row">
+							<div class="q_info_wjg">
+								<p>
+									<img src="images/icons/tanhao.png">
+									<span>暂未查证到有效监管信息 请注意风险！</span>
+								</p>
+							</div>
+						</div>
+
+						<h3>常用功能</h3>
+						<div class="q_changyong q_row">
+							<div class="q_cy_item q_row">
+								<img src="images/ico_cygn_mpgg.png">
+								<div class="q_col">
+									<p>冒牌公告 ▶</p>
+									<p>快速识别冒牌公告，保障安全</p>
+								</div>
+							</div>
+							<div class="q_cy_item q_row">
+								<img src="images/ico_cygn_hxtp.png">
+								<div class="q_col">
+									<p>关系图谱 ▶</p>
+									<p>快速识别冒牌公告，保障安全</p>
+								</div>
+							</div>
+							<div class="q_cy_item q_row">
+								<img src="images/ico_cygn_jianding.png">
+								<div class="q_col">
+									<p>MT4/5鉴定 ▶</p>
+									<p>快速识别冒牌公告，保障安全</p>
+								</div>
+							</div>
+							<div class="q_cy_item q_row">
+								<img src="images/ico_cygn_gstp.png">
+								<div class="q_col">
+									<p>公司图片 ▶</p>
+									<p>快速识别冒牌公告，保障安全</p>
+								</div>
+							</div>
+							<div class="q_cy_item q_row">
+								<img src="images/ico_cygn_gsgc.png">
+								<div class="q_col">
+									<p>公司高层 ▶</p>
+									<p>快速识别冒牌公告，保障安全</p>
+								</div>
+							</div>
+							<div class="q_cy_item q_row">
+								<img src="images/ico_cygn_zjzl.png">
+								<div class="q_col">
+									<p>证件资料 ▶</p>
+									<p>快速识别冒牌公告，保障安全</p>
+								</div>
+							</div>
+
+						</div>
+						<div class="q_ckfx_box" id="q_ckfx_box">
+							<div class="q_ckfx_item">
+								<div class="q_ckfx_title q_row">
+									<span>风险扫描</span>
+									<img src="images/icons/ico_fx_clean.png" onclick="close_ckfx()">
+								</div>
+								<p class="q_ckfx_tab q_row">
+									<label class="q_tab_active">高位风险</label>
+									<label>中等风险</label>
+									<label>一般风险</label>
+								</p>
+								<script>
+									$(function(){
+										$('.q_ckfx_content').css('display','none');
+										$('#q_ckfx_content1').css('display','block');
+									});
+									$('.q_ckfx_tab>label').click(function(){
+										$(this).addClass('q_tab_active');
+										$(this).siblings('label').removeClass('q_tab_active');
+										var text = $(this).text()	
+										$('.q_ckfx_content').css('display','none');
+										if(text == '高位风险'){
+											$('#q_ckfx_content1').css('display','block');
+										}
+										else if(text == '中等风险'){
+											$('#q_ckfx_content2').css('display','block');
+										}
+										else{
+											$('#q_ckfx_content3').css('display','block');
+										}
+									});
+								</script>
+								<div class="q_ckfx_content" id="q_ckfx_content1">
+									<p>高位风险 <span>(8)</span></p>
+									<p>该公司 的股东 中国葛洲坝集团股份有限公司 有开庭公告信息 <span>(8)</span></p>
+								</div>
+								<div class="q_ckfx_content" id="q_ckfx_content2">
+									<p>中等风险 <span>(8)</span></p>
+									<p>该公司 的股东 中国葛洲坝集团股份有限公司 有开庭公告信息 <span>(8)</span></p>
+								</div>
+								<div class="q_ckfx_content" id="q_ckfx_content3">
+									<p>一般风险 <span>(8)</span></p>
+									<p>该公司 的股东 中国葛洲坝集团股份有限公司 有开庭公告信息 <span>(8)</span></p>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="q_dsj">
+						<!-- 大数据 -->
+						<div class="q_dsj_title q_row">
+							<h3>大数据评级</h3>
+							<span><i class="show-pop btn btn-default bottom" data-placement="bottom"></i>关于评分规则</span>
+							<!-- 弹窗 -->
+							<script src="style/q_ui/jquery.webui-popover.js"></script>
+							<script>
+								(function() {
+						            var settings = {
+						                trigger: 'hover',
+						                title: '<div class="q_pfxz_box">\
+										<div class="q_pfxz_item q_row"><span>牌照指数</span><span>由我司法务团队，通过在监管机构网站查询，与监管机构电话、邮件沟通等多种手段对交易商的牌照真实性、价值性等作出综合评估。</span></div>\
+										<div class="q_pfxz_item q_row"><span>信披指数</span><span>由我司法务团队，通过在监管机构网站查询，与监管机构电话、邮件沟通等多种手段对交易商的牌照真实性、价值性等作出综合评估。</span></div>\
+										<div class="q_pfxz_item q_row"><span>软件指数</span><span>由我司法务团队，通过在监管机构网站查询，与监管机构电话、邮件沟通等多种手段对交易商的牌照真实性、价值性等作出综合评估。</span></div>\
+										<div class="q_pfxz_item q_row"><span>监管指数</span><span>由我司法务团队，通过在监管机构网站查询，与监管机构电话、邮件沟通等多种手段对交易商的牌照真实性、价值性等作出综合评估。</span></div>\
+										<div class="q_pfxz_item q_row"><span>舆情指数</span><span>由我司法务团队，通过在监管机构网站查询，与监管机构电话、邮件沟通等多种手段对交易商的牌照真实性、价值性等作出综合评估。</span></div>\
+										<div class="q_pfxz_item q_row"><span>服务指数</span><span>由我司法务团队，通过在监管机构网站查询，与监管机构电话、邮件沟通等多种手段对交易商的牌照真实性、价值性等作出综合评估。</span></div>\
+										<div class="q_pfxz_item q_row"><span>交易指数</span><span>由我司法务团队，通过在监管机构网站查询，与监管机构电话、邮件沟通等多种手段对交易商的牌照真实性、价值性等作出综合评估。</span></div></div>',
+						                content: '',
+						                width: 490,
+						                multi: true,
+						                closeable: false,
+						                style: '',
+						                delay: 300,
+						                padding: true
+						            };
+						            $('i.show-pop').webuiPopover('destroy').webuiPopover(settings);
+						        })();
+						    </script>
+						</div>
+						<div class="q_dsj_content q_row">
+							<div class="q_dsj_img">
+								<canvas id="chartjs-radar-chart">
+									请使用版本较高的浏览器
+								</canvas>
+							</div>
+							<div class="dsj_info">
+								<div class="q_dsj_info_title q_row">
+									<span><i></i><text class="q_dashuju_date"></text>
+										<script>
+											$(function(){
+											var myDate = new Date;
+											    var year = myDate.getFullYear(); //获取当前年
+											    var mon = myDate.getMonth() + 1; //获取当前月
+											var today_ = year+"年"+mon+"月";
+											$('.q_dashuju_date').text(today_);
+										});
+									</script>
+									</span>
+
+									<span><i>发展指数：</i>71.34</span>
+									<span><i>评级排名：</i>14</span>
+								</div>
+								<div class="q_dsj_info_data q_row">
+									<div>
+										<p class="q_row "><i class="q_dsj_bule"></i><span>牌照指数</span> <span>36.05</span></p>
+										<p class="q_row "><i class="q_dsj_yellow"></i><span>信披指数</span> <span>36.05</span></p>
+										<p class="q_row "><i class="q_dsj_green"></i><span>风控指数</span> <span>36.05</span></p>
+										<p class="q_row "><i class="q_dsj_red"></i><span>软件指数</span> <span>36.05</span></p>
+									</div>
+									<div>
+										<p class="q_row "><i class="q_dsj_orange"></i><span>监管指数</span> <span>36.05</span></p>
+										<p class="q_row "><i class="q_dsj_purple"></i><span>舆情指数</span> <span>36.05</span></p>
+										<p class="q_row "><i class="q_dsj_grey"></i><span>服务指数</span> <span>36.05</span></p>
+										<p class="q_row "><i class="q_dsj_black"></i><span>交易指数</span> <span>36.05</span></p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div class="q_yhdp">
+						<!-- 用户点评 -->
+						<h3>用户点评</h3>
+						<div class="q_yhdp_pf q_row">
+							<div class="q_yhdp_pf_1 q_col">
+								<h2>4.8</h2>
+								<p>
+									<i class="q_star"></i>
+									<i class="q_star"></i>
+									<i class="q_star"></i>
+									<i class="q_star"></i>
+									<i class="q_star_empty"></i>
+								</p>
+								<p class="q_pf_text">已有2382人点评</p>
+								<a href="javascript:;" onclick="to_dafen()">我要点评</a>
+							</div>
+							<div class="q_yhdp_pf_2">
+								<h5>评分<small style="float: right;margin-top: 3px;">与全部平台相比</small></h5>
+								<table class="q_yhdp_pf_table">
+									<tr>
+										<td>交易成本</td>
+										<td>
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_yiban_b.png">
+										</td>
+										<td>4.8</td>
+										<td><img src="images/icons/ico_low.png" class="q_jiantou"> 低 4.8%</td>
+
+									</tr>
+									<tr>
+										<td>订单执行</td>
+										<td>
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_yiban_b.png">
+										</td>
+										<td>4.8</td>
+										<td><img src="images/icons/ico_low.png" class="q_jiantou"> 低 4.8%</td>
+									</tr>
+									<tr>
+										<td>出入金</td>
+										<td>
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_yiban_b.png">
+										</td>
+										<td>4.8</td>
+										<td><img src="images/icons/ico_hign.png" class="q_jiantou"> 低 4.8%</td>
+									</tr>
+									<tr>
+										<td>交易滑点</td>
+										<td>
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_yiban_b.png">
+										</td>
+										<td>4.8</td>
+										<td><img src="images/icons/ico_low.png" class="q_jiantou"> 低 4.8%</td>
+									</tr>
+									<tr>
+										<td>卡盘掉线</td>
+										<td>
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_yiban_b.png">
+										</td>
+										<td>4.8</td>
+										<td><img src="images/icons/ico_hign.png" class="q_jiantou"> 低 4.8%</td>
+									</tr>
+									<tr>
+										<td>客户服务</td>
+										<td>
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_yiban_b.png">
+										</td>
+										<td>4.8</td>
+										<td><img src="images/icons/ico_low.png" class="q_jiantou"> 低 4.8%</td>
+									</tr>
+								</table>
+							</div>
+							<div class="q_yhdp_pf_3">
+								<h5>网友印象<small style="float: right;margin-top: 3px;"><img src="images/icons/ico_xq_gxsj.png" style="cursor: pointer;"
+										 onclick="change_wyyx_num()"> 换一组</small></h4>
+									<div class="q_wyyx q_row q_wyyx_box">
+										<span class="q_wyyx_item">不错1(1234)</span>
+										<span class="q_wyyx_item">不错2(1234)</span>
+										<span class="q_wyyx_item">不错3(1234)</span>
+										<span class="q_wyyx_item">不错4(1234)</span>
+										<span class="q_wyyx_item">不错5(1234)</span>
+										<span class="q_wyyx_item">不错6(1234)</span>
+										<span class="q_wyyx_item">不错7(1234)</span>
+										<span class="q_wyyx_item">不错8(1234)</span>
+										<span class="q_wyyx_item">不错9(1234)</span>
+										<span class="q_wyyx_item">不错10(1234)</span>
+										<span class="q_wyyx_item">不错11(1234)</span>
+										<span class="q_wyyx_item">不错12(1234)</span>
+										<span class="q_wyyx_item">不错14(1234)</span>
+									</div>
+							</div>
+						</div>
+						
+						<div class="q_yhdp_type q_row">
+							<span class="q_yhdp_type_item q_yhdp_active" data-type="0">全部（1234)</span>
+							<span class="q_yhdp_type_item" data-type="1">推荐（1234)</span>
+							<span class="q_yhdp_type_item" data-type="2">一般（1234)</span>
+							<span class="q_yhdp_type_item" data-type="3">不推荐（1234)</span>
+						</div>
+						
+						<div class="q_pinglun_box" id="q_pl_item_html">
+							<!-- 评论部分 -->
+							<!-- <div class="q_pl_item q_row" > -->
+								<!-- <img src="images/test.png" class="q_pl_tx" alt="">
+								<div class="q_pl_item_content">
+									<p class="q_row q_pl_title">
+										<span class="q_pl_name">
+											KC东尼 <img src="images/icons/ico_yb.png"> <span>一般</span>
+										</span>
+										<span class="q_pl_time">2019-05-10 12:12:33</span>
+									</p>
+									<p class="q_pl_star">
+										<span>交易成本</span>
+										<span><img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_yiban_b.png"></span>
+										<span>出入金</span>
+										<span><img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_yiban_b.png"></span>
+										<span>卡盘掉线</span>
+										<span><img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_yiban_b.png"></span></p>
+									<p class="q_pl_star">
+										<span>订单执行</span>
+										<span><img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_yiban_b.png"></span>
+										<span>交易滑点</span>
+										<span><img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_yiban_b.png"></span>
+										<span>客户服务</span>
+										<span><img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_wanz_b.png">
+											<img src="images/icons/ico_xing_yiban_b.png"></span></p>
+									<p class="q_pl_star">
+										<span>印象</span>
+										<span class="q_pl_yx_itme">
+											体验不错
+										</span>
+										<span class="q_pl_yx_itme">
+											体验不错
+										</span>
+										<span class="q_pl_yx_itme">
+											体验不错
+										</span>
+									</p>
+									<div class="q_pl_text">
+										对pp做了些研究：2019后所有标的都是小额消费金融，在互金信息披露平台都能查到，之前的小微企业，车贷，农贷产品都停止发新了，标的都是存量。合规改进上pp做的还是可以的。希望平台能够通过备案坚持下去，摆脱td阴影
+									</div>
+									<p class="q_pl_zan">
+										<span class="q_zan">56 <img src="images/icons/ico_dianzai.png"></span>
+										<span class="q_huifu">回复</span>
+									</p> -->
+
+									<!-- 子回复企业回复 -->
+									<!-- <div class="q_qy_huifu">
+										<p class="q_row q_pl_title">
+											<span class="q_pl_name">
+												<img src="images/test.png" class="q_pl_tx" alt="">企业回复
+											</span>
+											<span class="q_pl_time">2019-05-10 12:12:33</span>
+										</p>
+										<div class="q_huifu_text q_row">
+											对pp做了些研究：2019后所有标的都是小额消费金融，在互金信息披露平台都能查到，之前的小微企业，车贷，农贷产品都停止发新了，标的都是存量。合规改进上pp做的还是可以的。希望平台能够通过备案坚持下去，摆脱td阴影
+										</div>
+									</div> -->
+
+									<!-- 子回复一般回复 -->
+									<!-- <div class="q_yb_huifu">
+										<p class="q_row q_pl_title">
+											<span class="q_pl_name">
+												<img src="images/test.png" class="q_pl_tx" alt="">KC东尼 <span class="q_zff_text">回复</span>
+											</span>
+											<span class="q_pl_time">2019-05-10 12:12:33</span>
+										</p>
+										<div class="q_huifu_text q_row">
+											对pp做了些研究：2019后所有标的都是小额消费金融，在互金信息披露平台都能查到，之前的小微企业，车贷，农贷产品都停止发新了，标的都是存量。合规改进上pp做的还是可以的。希望平台能够通过备案坚持下去，摆脱td阴影
+											<img onclick="q_huifu_img(this)" src="images/test.png">
+											<img onclick="q_huifu_img(this)" src="images/test.png">
+											<img onclick="q_huifu_img(this)" src="images/test.png">
+										</div>
+										<p class="q_pl_zan">
+											<span class="q_huifu">回复</span>
+										</p>
+									</div> -->
+
+								<!-- </div> -->
+
+							<!-- </div> -->
+						</div>
+						<div class="pages">
+							
+						</div>
+						<div class="q_tijiao_box">
+							<div class="q_row">
+								<div class="q_tijiao_title">评价：</div>
+								<div class="q_tijiao_right q_tj_pj">
+									<button onclick="q_tj_sup(this,1)"><img src="images/icons/ico_hp.png">推荐</button>
+									<button onclick="q_tj_sup(this,2)"><img src="images/icons/ico_yb.png">一般</button>
+									<button onclick="q_tj_sup(this,3)"><img src="images/icons/ico_cp.png">不推荐</button>
+								</div>
+							</div>
+							<div class="q_row">
+								<div class="q_tijiao_title">印象：</div>
+								<div class="q_tijiao_right q_yx">
+									<div class="q_row">
+										<div class="q_yx_box">
+										</div>
+										<input type="text" class="q_zdyyx">
+										<img src="images/icons/icon_add_s.png" class="q_zdyyx_img">
+									</div>
+									<div class="q_yx_items">
+										<span>很好</span>
+										<span>非常好</span>
+										<span>一般</span>
+										<span>差评</span>
+									</div>
+								</div>
+							</div>
+							<div class="q_row">
+								<div class="q_tijiao_title">评分：</div>
+								<div class="q_tijiao_right q_tj_pf">
+									<p class="q_pl_star">
+										<span>交易成本</span>
+										<span>
+											<img data-stars="1" data-star-type='rate_cost' src="images/icons/ico_xing_yiban_b.png">
+											<img data-stars="2" data-star-type='rate_cost' src="images/icons/ico_xing_yiban_b.png">
+											<img data-stars="3" data-star-type='rate_cost' src="images/icons/ico_xing_yiban_b.png">
+											<img data-stars="4" data-star-type='rate_cost' src="images/icons/ico_xing_yiban_b.png">
+											<img data-stars="5" data-star-type='rate_cost' src="images/icons/ico_xing_yiban_b.png"></span>
+										<span>出入金</span>
+										<span>
+											<img data-stars="1" data-star-type='rate_fund' src="images/icons/ico_xing_yiban_b.png">
+											<img data-stars="2" data-star-type='rate_fund' src="images/icons/ico_xing_yiban_b.png">
+											<img data-stars="3" data-star-type='rate_fund' src="images/icons/ico_xing_yiban_b.png">
+											<img data-stars="4" data-star-type='rate_fund' src="images/icons/ico_xing_yiban_b.png">
+											<img data-stars="5" data-star-type='rate_fund' src="images/icons/ico_xing_yiban_b.png"></span>
+										<span>卡盘掉线</span>
+										<span>
+											<img data-stars="1" data-star-type='rate_stable' src="images/icons/ico_xing_yiban_b.png">
+											<img data-stars="2" data-star-type='rate_stable' src="images/icons/ico_xing_yiban_b.png">
+											<img data-stars="3" data-star-type='rate_stable' src="images/icons/ico_xing_yiban_b.png">
+											<img data-stars="4" data-star-type='rate_stable' src="images/icons/ico_xing_yiban_b.png">
+											<img data-stars="5" data-star-type='rate_stable' src="images/icons/ico_xing_yiban_b.png"></span></p>
+									<p class="q_pl_star">
+										<span>订单执行</span>
+										<span>
+											<img data-stars="1" data-star-type='rate_exc' src="images/icons/ico_xing_yiban_b.png">
+											<img data-stars="2" data-star-type='rate_exc' src="images/icons/ico_xing_yiban_b.png">
+											<img data-stars="3" data-star-type='rate_exc' src="images/icons/ico_xing_yiban_b.png">
+											<img data-stars="4" data-star-type='rate_exc' src="images/icons/ico_xing_yiban_b.png">
+											<img data-stars="5" data-star-type='rate_exc' src="images/icons/ico_xing_yiban_b.png"></span>
+										<span>交易滑点</span>
+										<span>
+											<img data-stars="1" data-star-type='rate_slip' src="images/icons/ico_xing_yiban_b.png">
+											<img data-stars="2" data-star-type='rate_slip' src="images/icons/ico_xing_yiban_b.png">
+											<img data-stars="3" data-star-type='rate_slip' src="images/icons/ico_xing_yiban_b.png">
+											<img data-stars="4" data-star-type='rate_slip' src="images/icons/ico_xing_yiban_b.png">
+											<img data-stars="5" data-star-type='rate_slip' src="images/icons/ico_xing_yiban_b.png"></span>
+										<span>客户服务</span>
+										<span>
+											<img data-stars="1" data-star-type='rate_service' src="images/icons/ico_xing_yiban_b.png">
+											<img data-stars="2" data-star-type='rate_service' src="images/icons/ico_xing_yiban_b.png">
+											<img data-stars="3" data-star-type='rate_service' src="images/icons/ico_xing_yiban_b.png">
+											<img data-stars="4" data-star-type='rate_service' src="images/icons/ico_xing_yiban_b.png">
+											<img data-stars="5" data-star-type='rate_service' src="images/icons/ico_xing_yiban_b.png"></span></p>
+								</div>
+								<button type="button" class="q_tj_pf_btn" onclick="tj_reset()">重置全部</button>
+
+							</div>
+							<div class="q_row">
+								<div class="q_tijiao_title">点评：</div>
+								<div class="q_tijiao_right">
+									<div class="qq">
+										<p>企业的发展离不开您宝贵的建议，请留下您的最真实的评论！</p>
+										<div class="message q_tj_msh" contentEditable='true'></div>
+										<div class="But">
+											<img src="images/emojis/bba_thumb.gif" class='bq' />
+											<img src="images/icons/ico_hf_picture.png" onclick="up_imgs(2)" class='bq2' />
+											<input type="file" style="display: none;" id="q_th_img" onchange="q_tj_imgs(this)" value="" />
+											<span class='submit' onclick="q_tj_pl()">发表</span>
+											<div class="img_sp img_sp2">
+												
+											</div>
+											<!--face begin-->
+											<div class="face">
+												<ul>
+													<li><img src="images/emojis/smilea_thumb.gif" title="呵呵]"></li>
+													<li><img src="images/emojis/tootha_thumb.gif" title="嘻嘻]"></li>
+													<li><img src="images/emojis/laugh.gif" title="[哈哈]"></li>
+													<li><img src="images/emojis/tza_thumb.gif" title="[可爱]"></li>
+													<li><img src="images/emojis/kl_thumb.gif" title="[可怜]"></li>
+													<li><img src="images/emojis/kbsa_thumb.gif" title="[挖鼻屎]"></li>
+													<li><img src="images/emojis/cj_thumb.gif" title="[吃惊]"></li>
+													<li><img src="images/emojis/shamea_thumb.gif" title="[害羞]"></li>
+													<li><img src="images/emojis/zy_thumb.gif" title="[挤眼]"></li>
+													<li><img src="images/emojis/bz_thumb.gif" title="[闭嘴]"></li>
+													<li><img src="images/emojis/bs2_thumb.gif" title="[鄙视]"></li>
+													<li><img src="images/emojis/lovea_thumb.gif" title="[爱你]"></li>
+													<li><img src="images/emojis/sada_thumb.gif" title="[泪]"></li>
+													<li><img src="images/emojis/heia_thumb.gif" title="[偷笑]"></li>
+													<li><img src="images/emojis/qq_thumb.gif" title="[亲亲]"></li>
+													<li><img src="images/emojis/sb_thumb.gif" title="[生病]"></li>
+													<li><img src="images/emojis/mb_thumb.gif" title="[太开心]"></li>
+													<li><img src="images/emojis/ldln_thumb.gif" title="[懒得理你]"></li>
+													<li><img src="images/emojis/yhh_thumb.gif" title="[右哼哼]"></li>
+													<li><img src="images/emojis/zhh_thumb.gif" title="[左哼哼]"></li>
+													<li><img src="images/emojis/x_thumb.gif" title="[嘘]"></li>
+													<li><img src="images/emojis/cry.gif" title="[衰]"></li>
+													<li><img src="images/emojis/wq_thumb.gif" title="[委屈]"></li>
+													<li><img src="images/emojis/t_thumb.gif" title="[吐]"></li>
+													<li><img src="images/emojis/k_thumb.gif" title="[打哈气]"></li>
+													<li><img src="images/emojis/bba_thumb.gif" title="[抱抱]"></li>
+													<li><img src="images/emojis/angrya_thumb.gif" title="[怒]"></li>
+													<li><img src="images/emojis/yw_thumb.gif" title="[疑问]"></li>
+													<li><img src="images/emojis/cza_thumb.gif" title="[馋嘴]"></li>
+													<li><img src="images/emojis/88_thumb.gif" title="[拜拜]"></li>
+													<li><img src="images/emojis/sk_thumb.gif" title="[思考]"></li>
+													<li><img src="images/emojis/sweata_thumb.gif" title="[汗]"></li>
+													<li><img src="images/emojis/sleepya_thumb.gif" title="[困]"></li>
+													<li><img src="images/emojis/sleepa_thumb.gif" title="[睡觉]"></li>
+													<li><img src="images/emojis/money_thumb.gif" title="[钱]"></li>
+													<li><img src="images/emojis/sw_thumb.gif" title="[失望]"></li>
+													<li><img src="images/emojis/cool_thumb.gif" title="[酷]"></li>
+													<li><img src="images/emojis/hsa_thumb.gif" title="[花心]"></li>
+													<li><img src="images/emojis/hatea_thumb.gif" title="[哼]"></li>
+													<li><img src="images/emojis/gza_thumb.gif" title="[鼓掌]"></li>
+													<li><img src="images/emojis/dizzya_thumb.gif" title="[晕]"></li>
+													<li><img src="images/emojis/bs_thumb.gif" title="[悲伤]"></li>
+
+
+												</ul>
+											</div>
+											<!--face end-->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 右边 -->
+				<div class="q_c_right">
+					<div class="q_news_list">
+						<!-- 新闻列表 -->
+						<div class="q_news_top q_row">
+							<div class="q_new_top_item  q_news_tab_active" data-type="">
+								<p>最新投诉</p>
+								<span>（2424）</span>
+							</div>
+							<div class="q_new_top_item" data-type="alredayreply">
+								<p>已回收</p>
+								<span>（424）</span>
+							</div>
+							<div class="q_new_top_item" data-type="alldone">
+								<p>已完成</p>
+								<span>（453）</span>
+							</div>
+							<div class="q_new_top_item" data-type="brokernews">
+								<p>交易商</p>
+								<span>（32）</span>
+							</div>
+							<script>
+								$(function(){
+									$('.q_news_list_content1').css('display','none');
+									$('#tab1').css('display','block');
+								});
+								var tousu_type = '';
+								var tousu_page = 1;
+								$('.q_new_top_item').click(function() {
+									$(this).addClass('q_news_tab_active');
+									$('.q_news_list_content2').html('')
+									$(this).siblings('div').removeClass('q_news_tab_active');
+									tousu_type = $(this).attr('data-type');
+									// 初始化投诉列表
+									$('.q_news_list_content1').css('display','none');
+									
+									$('.q_news_more>a').text('查看更多');
+									tousu_page = 1;
+									if(tousu_type==''){
+										$('#tab1').css('display','block');
+									}
+									else if(tousu_type=='alredayreply'){
+										$('#tab2').css('display','block');
+									}
+									else if(tousu_type=='alldone'){
+										$('#tab3').css('display','block');
+									}
+									else{
+										$('#tab4').css('display','block');
+									}
+								});
+							</script>
+						</div>
+						<div class="q_news_list_content q_news_list_content1" id="tab1">
+							<div class="q_news_item q_row">
+								<div>
+									<p><span class="q_bule q_news_item_tl">无法出金</span>蚂蚁金服我要求珍爱网线下服务平台退款</p>
+									<p><img src="images/icon03.png"><span class="tousu_username">林东东</span><span>一天前</span></p>
+								</div>
+								<div><img src="images/test.png"></div>
+							</div>
+						</div>
+						<div class="q_news_list_content q_news_list_content1" id="tab2">
+							<div class="q_news_item q_row">
+								<div>
+									<p><span class="q_yellow q_news_item_tl">滑点严重</span>蚂蚁金服我要求珍爱网线下服务平台退款</p>
+									<p><img src="images/icon03.png"><span class="tousu_username">林东东</span><span>一天前</span></p>
+								</div>
+								<div><img src="images/test.png"></div>
+							</div>
+						</div>
+						<div class="q_news_list_content q_news_list_content1" id="tab3">
+							<div class="q_news_item q_row">
+								<div>
+									<p><span class="q_green q_news_item_tl">诱导/欺诈</span>蚂蚁金服我要求珍爱网线下服务平台退款</p>
+									<p><img src="images/icon03.png"><span class="tousu_username">林东东</span><span>一天前</span></p>
+								</div>
+								<div><img src="images/test.png"></div>
+							</div>
+						</div>
+						<div class="q_news_list_content q_news_list_content1" id="tab4">
+							<div class="q_news_item q_row">
+								<div>
+									<p><span class="q_purple q_news_item_tl">其他曝光</span>蚂蚁金服我要求珍爱网线下服务平台退款</p>
+									<p><img src="images/icon03.png"><span class="tousu_username">林东东</span><span>一天前</span></p>
+								</div>
+								<div><img src="images/test.png"></div>
+							</div>
+
+						</div>
+						<div class="q_news_list_content q_news_list_content2">
+							
+						
+						</div>
+						<div class="q_news_more">
+							<a href="javascript:;" onclick="get_broker(this)">查看更多</a>
+							<script>
+								var broker_id = $("#companie_id").val();
+
+								function get_broker(e) {
+									var tousu_url = api_address + '/api/broker/newestcase';
+									var tousu_data = {
+										'broker_id': broker_id,
+										'progress': tousu_type,
+										'page': tousu_page
+									};
+									if (tousu_type == 'brokernews') {
+										tousu_url = api_address + '/api/broker/brokernews';
+										tousu_data = {
+											'broker_id': broker_id,
+											'page': tousu_page
+										};
+									}
+									$.ajax({
+										url: api_address + '/api/broker/newestcase',
+										type: 'post',
+										dataType: 'json',
+										data: tousu_data,
+										success: function(data) {
+											var html_text = '';
+											if (data.code === 200) {
+												data = data.data.data;
+												for (let i = 0; i < data.length; i++) {
+													html_text += '<div class="q_news_item q_row">\
+													<div>';
+													switch (data[i].tag) {
+														case '无法出金':
+															html_text += '<p><span class="q_bule q_news_item_tl">无法出金';
+															break;
+														case '滑点严重':
+															html_text += '<p><span class="q_yellow q_news_item_tl">滑点严重';
+															break;
+														case '诱导/欺诈':
+															html_text += '<p><span class="q_green q_news_item_tl">诱导/欺诈';
+															break;
+														case '其他曝光':
+															html_text += '<p><span class="q_purple q_news_item_tl">其他曝光';
+															break;
+														default:
+															break;
+													}
+													var time = data[i].time * 1000
+													let date = new Date(time);
+													html_text += '</span>' + data[i].title + '</p>\
+													<p><img src="' + api_address + data[i].head_img_url +
+														'"><span class="tousu_username">' + data[i].name + '</span><span>' + formatDate(date, 'yyyy-MM-dd') +
+														'</span></p>\
+													</div>\
+													<div><img src="' + api_address + data[i].imgs.split(
+															',')[0] + '"></div>\
+													</div>';
+												}
+												$('.q_news_list_content2').append(html_text);
+												if (data.length < 1) {
+													$(e).text('已经没有更多了');
+												}
+											}
+
+											tousu_page++;
+
+										},
+										error: function(e) {
+											console.log(e);
+										}
+									});
+								}
+							</script>
+						</div>
+					</div>
+					<div class="q_gfpj">
+						<!-- 官方评级 -->
+						<div class="q_pj_top q_row">
+							<span>官方评级 TOP10</span>
+							<span>更多</span>
+						</div>
+						<div class="q_pj_list_box">
+							<a class="q_row q_pj_item">
+								<span class="q_pj_title">排名</span>
+								<span class="q_pj_title">平台</span>
+								<span class="q_pj_title">发展指数</span>
+							</a>
+							<a class="q_row q_pj_item">
+								<span><i class="q_pj_1 q_pj_icon">1</i></span>
+								<span><img src="images/icon03.png">路金服</span>
+								<span>85.08</span>
+							</a>
+							<a class="q_row q_pj_item">
+								<span><i class="q_pj_2 q_pj_icon">2</i></span>
+								<span><img src="images/icon03.png">路金服</span>
+								<span>85.08</span>
+							</a>
+							<a class="q_row q_pj_item">
+								<span><i class="q_pj_3 q_pj_icon">3</i></span>
+								<span><img src="images/icon03.png">路金服</span>
+								<span>85.08</span>
+							</a>
+							<a class="q_row q_pj_item ">
+								<span><i class="q_pj_4 q_pj_icon">4</i></span>
+								<span><img src="images/icon03.png">路金服</span>
+								<span>85.08</span>
+							</a>
+							<a class="q_row q_pj_item ">
+								<span><i class="q_pj_4 q_pj_icon">5</i></span>
+								<span><img src="images/icon03.png">路金服</span>
+								<span>85.08</span>
+							</a>
+							<a class="q_row q_pj_item ">
+								<span><i class="q_pj_4 q_pj_icon">6</i></span>
+								<span><img src="images/icon03.png">路金服</span>
+								<span>85.08</span>
+							</a>
+							<a class="q_row q_pj_item ">
+								<span><i class="q_pj_4 q_pj_icon">7</i></span>
+								<span><img src="images/icon03.png">路金服</span>
+								<span>85.08</span>
+							</a>
+							<a class="q_row q_pj_item ">
+								<span><i class="q_pj_4 q_pj_icon">8</i></span>
+								<span><img src="images/icon03.png">路金服</span>
+								<span>85.08</span>
+							</a>
+							<a class="q_row q_pj_item ">
+								<span><i class="q_pj_4 q_pj_icon">9</i></span>
+								<span><img src="images/icon03.png">路金服</span>
+								<span>85.08</span>
+							</a>
+							<a class="q_row q_pj_item ">
+								<span><i class="q_pj_4 q_pj_icon">10</i></span>
+								<span><img src="images/icon03.png">路金服</span>
+								<span>85.08</span>
+							</a>
+
+						</div>
+						<div class="q_pj_more q_col">
+							<p>评级介绍及不收费声明</p>
+							<p>3月评级报告全文</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 展示大图 -->
+		<div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:9999999;width:100%;height:100%;display:none;">
+			<div id="innerdiv" style="position:absolute;">
+				<img id="bigimg" style="border:5px solid #fff;" src="" />
+			</div>
+		</div>
+		<script src="style/q_ui/q_emoji_broker.js"></script>
+
+		<script src="style/q_ui/MiniDialog-es5.min.js"></script>
+		<script src="style/q_broker.js"></script>
+		<script src="style/q_ui/progresscircle.js"></script>
+		<script src="style/d_jquery.page.js"></script>
+
+		<script>
+			$('.circlechart').circlechart(); // Initialization
+			
+
+			function q_huifu_img(e) {
+				var _this = $(e); //将当前的pimg元素作为_this传入函数
+				imgShow("#outerdiv", "#innerdiv", "#bigimg", _this);
+			}
+		</script>
+		<script src="style/q_ui/Chart.min.js"></script>
+		<script>
+			window.chartColors = {
+				red: 'rgb(255, 99, 132)',
+				orange: 'rgb(255, 159, 64)',
+				yellow: 'rgb(255, 205, 86)',
+				green: 'rgb(75, 192, 192)',
+				blue: 'rgb(54, 162, 235)',
+				purple: 'rgb(153, 102, 255)',
+				grey: 'rgb(201, 203, 207)',
+				black: 'rgb(0, 0, 0)'
+			};
+			var color = Chart.helpers.color;
+			var radarConfig = {
+				type: 'radar',
+				data: {
+					labels: [
+						"item1", "item2", "item3", "item4", "item5", "item6", "item7", "item8"
+					],
+					datasets: [{
+						label: "",
+						backgroundColor: color(window.chartColors.red).alpha(0.2).rgbString(),
+						borderColor: window.chartColors.red,
+						pointBackgroundColor: window.chartColors.red,
+						data: [
+							100, 50, 60, 90, 60, 100, 99, 60
+						]
+					}]
+				},
+				options: {
+					responsive: true,
+					maintainAspectRatio: false,
+					legend: {
+						display: false
+					},
+					title: {
+						display: false,
+					},
+					scale: {
+						ticks: {
+							beginAtZero: true
+						}
+					}
+				}
+			};
+
+
+
+			window.myRadar = new Chart(document.getElementById("chartjs-radar-chart"), radarConfig);
+		</script>
+	</body>
+
+</html>
